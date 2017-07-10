@@ -1,0 +1,818 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>TestEvoRTE Test Report</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>TestEvoRTE Test Report</h1>
+<p class='attribute'><strong>Start Time:</strong> 2017-07-10 10:45:22</p>
+<p class='attribute'><strong>Duration:</strong> 0:01:45.012944</p>
+<p class='attribute'><strong>Status:</strong> Pass 28 Error 2</p>
+
+<p class='description'>TestEvoRTETest Results</p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='errorClass'>
+    <td>TestEvoRte:  Class: For creating, adding components to the home page and testing the components added.</td>
+    <td>30</td>
+    <td>28</td>
+    <td>0</td>
+    <td>2</td>
+    <td><a href="javascript:showClassDetail('c1',30)">Detail</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>createRTEPage: Creating a home page using the landing page template.</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>createNewRTEComponent: Creating the new HeroCTBanner component on the home page.</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>activateRTEPageBaseLevel: Activates the norton security page on 5 site levels</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.3')" >
+        pass</a>
+
+    <div id='div_pt1.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.3: curl -u "content_automation":"CA746" -X POST -F path="/content/norton-msm/base/en/automation/Home_page_evo_rte_20170710_10_45_22" -F cmd="activate" http://10.91.100.97/bin/replicate.json
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testRTEText: Tests the Rich Text Editor inside the Alert Banner component.</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>updateRTEComponentHyperlink: Creating the new HeroCTBanner component on the home page.</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>activateUpdatedRTEHyperlinkPageBaseLevel: Activates the norton security page on 5 site levels</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.6')" >
+        pass</a>
+
+    <div id='div_pt1.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.6: curl -u "content_automation":"CA746" -X POST -F path="/content/norton-msm/base/en/automation/Home_page_evo_rte_20170710_10_45_22" -F cmd="activate" http://10.91.100.97/bin/replicate.json
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testRTEUpdatedHyperlinkText: Tests hyperlink in RTE.</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>updateRTEComponentHeading: Creating the new HeroCTBanner component on the home page.</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>activateUpdatedRTEHeaderPageBaseLevel: Activates the norton security page on 5 site levels</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.9')" >
+        pass</a>
+
+    <div id='div_pt1.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.9: curl -u "content_automation":"CA746" -X POST -F path="/content/norton-msm/base/en/automation/Home_page_evo_rte_20170710_10_45_22" -F cmd="activate" http://10.91.100.97/bin/replicate.json
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testRTEHeaders: Tests the Rich Text Editor inside the Alert Banner component.</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.11' class='hiddenRow'>
+    <td class='none'><div class='testcase'>updateRTEComponentLinkWhite: Creating the new HeroCTBanner component on the home page.</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.12' class='hiddenRow'>
+    <td class='none'><div class='testcase'>activateUpdatedRTEStylePageBaseLevel: Activates the norton security page on 5 site levels</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.12')" >
+        pass</a>
+
+    <div id='div_pt1.12' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.12').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.12: curl -u "content_automation":"CA746" -X POST -F path="/content/norton-msm/base/en/automation/Home_page_evo_rte_20170710_10_45_22" -F cmd="activate" http://10.91.100.97/bin/replicate.json
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.13' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testRTEStyle: Tests the Rich Text Editor inside the Alert Banner component.</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.14' class='hiddenRow'>
+    <td class='none'><div class='testcase'>updateRTEMultipleDiv: Creating the new HeroCTBanner component on the home page.</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.15' class='hiddenRow'>
+    <td class='none'><div class='testcase'>activateUpdatedRTEDivsPageBaseLevel: Activates the norton security page on 5 site levels</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.15')" >
+        pass</a>
+
+    <div id='div_pt1.15' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.15').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.15: curl -u "content_automation":"CA746" -X POST -F path="/content/norton-msm/base/en/automation/Home_page_evo_rte_20170710_10_45_22" -F cmd="activate" http://10.91.100.97/bin/replicate.json
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.16' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testRTEDivs: Tests the Rich Text Editor inside the Alert Banner component.</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.17' class='hiddenRow'>
+    <td class='none'><div class='testcase'>updateRTEBR: Creating the new HeroCTBanner component on the home page.</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.18' class='hiddenRow'>
+    <td class='none'><div class='testcase'>activateUpdatedRTEBRPageBaseLevel: Activates the norton security page on 5 site levels</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.18')" >
+        pass</a>
+
+    <div id='div_pt1.18' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.18').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.18: curl -u "content_automation":"CA746" -X POST -F path="/content/norton-msm/base/en/automation/Home_page_evo_rte_20170710_10_45_22" -F cmd="activate" http://10.91.100.97/bin/replicate.json
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.19' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testRTEBR: Tests the Rich Text Editor inside the Alert Banner component.</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='ft1.20' class='none'>
+    <td class='errorCase'><div class='testcase'>updateRTEFormat: Creating the new HeroCTBanner component on the home page.</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.20')" >
+        error</a>
+
+    <div id='div_ft1.20' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.20').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.20: Traceback (most recent call last):
+  File "moduleTestEvoRTE.py", line 285, in updateRTEFormat
+    description = "Adding Link:White Style RTE")
+  File "/Users/felix_brodskiy/Perforce/felix_brodskiy_perforce/depot/AEM/qa_tests/New_AEM_MSM_Structure_QA/helpers/testSuiteHelpers.py", line 427, in create_component
+    raise Exception(str(e))
+Exception: Command 'curl -u "content_automation":"CA746" -F "sling:resourceType=norton/components/content/rover/rich-text-editor" -F "rteText= &lt;p style="text-align:center;"&gt;Center&lt;/p&gt;&lt;p&gt;Left&lt;/p&gt;&lt;p style="text-align:right;"&gt;Right&lt;/p&gt;&lt;ol&gt;&lt;li&gt;Number One&lt;/li&gt;&lt;li&gt;Number Two&lt;/li&gt;&lt;li&gt;Number Three&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Bullet One&lt;/li&gt;&lt;li&gt;Bullet Two&lt;/li&gt;&lt;li&gt;Bullet Three&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;b&gt;Bold &lt;sub&gt;subscript&lt;/sub&gt;&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;Italic&lt;/i&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Underlined&amp;nbsp;&lt;sup&gt;Superscript&lt;/sup&gt;&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p style="margin-left:40px;"&gt;indent&lt;/p&gt;" http://10.91.100.97/content/norton-msm/base/en/automation/Home_page_evo_rte_20170710_10_45_22/jcr:content/content/rich_text_editor_2ad' returned non-zero exit status 127
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.21' class='hiddenRow'>
+    <td class='none'><div class='testcase'>activateUpdatedRTEFormatPageBaseLevel: Activates the norton security page on 5 site levels</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.21')" >
+        pass</a>
+
+    <div id='div_pt1.21' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.21').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.21: curl -u "content_automation":"CA746" -X POST -F path="/content/norton-msm/base/en/automation/Home_page_evo_rte_20170710_10_45_22" -F cmd="activate" http://10.91.100.97/bin/replicate.json
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.22' class='none'>
+    <td class='errorCase'><div class='testcase'>testRTEFormat: Tests the Rich Text Editor inside the Alert Banner component.</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.22')" >
+        error</a>
+
+    <div id='div_ft1.22' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.22').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.22: Traceback (most recent call last):
+  File "moduleTestEvoRTE.py", line 311, in testRTEFormat
+    new_rich_text_editor_xpath_01 + '/p[contains(@style,"margin-left")]': 'indent',
+  File "/Users/felix_brodskiy/Perforce/felix_brodskiy_perforce/depot/AEM/qa_tests/New_AEM_MSM_Structure_QA/module_helpers/genericModuleHelper.py", line 76, in testTextHelper
+    test_text_at_each_url(each_url)
+  File "/Users/felix_brodskiy/Perforce/felix_brodskiy_perforce/depot/AEM/qa_tests/New_AEM_MSM_Structure_QA/module_helpers/genericModuleHelper.py", line 71, in test_text_at_each_url
+    text_xpath)
+  File "/Users/felix_brodskiy/Perforce/felix_brodskiy_perforce/depot/AEM/qa_tests/New_AEM_MSM_Structure_QA/helpers/finderChecker.py", line 652, in verify_partial_text
+    raise Exception("Xpath is: " + str(what) + ". " + str(e))
+Exception: Xpath is: .//*[contains(@class,'rich-text-editor parbase section')]/*[contains(@style,"right")]. Message: 
+Stacktrace:
+    at FirefoxDriver.prototype.findElementInternal_ (file:///var/folders/3f/4_wp_mks4wz__vg01qldxyd0drjbks/T/tmpTWLGvY/extensions/fxdriver@googlecode.com/components/driver-component.js:10770)
+    at fxdriver.Timer.prototype.setTimeout/&lt;.notify (file:///var/folders/3f/4_wp_mks4wz__vg01qldxyd0drjbks/T/tmpTWLGvY/extensions/fxdriver@googlecode.com/components/driver-component.js:625)
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.23' class='hiddenRow'>
+    <td class='none'><div class='testcase'>cleanupRteComponent: Creating the new HeroCTBanner component on the home page.</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.23')" >
+        pass</a>
+
+    <div id='div_pt1.23' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.23').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.23: curl -u "content_automation":"CA746" -X DELETE http://10.91.100.97/content/norton-msm/base/en/automation/Home_page_evo_rte_20170710_10_45_22/jcr:content/content/rich_text_editor_2ad
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.24' class='hiddenRow'>
+    <td class='none'><div class='testcase'>createPanelComboRTEComponent: Creating the new HeroCTBanner component on the home page.</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.25' class='hiddenRow'>
+    <td class='none'><div class='testcase'>activateUpdatedRTEComboPageBaseLevel: Activates the norton security page on 5 site levels</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.25')" >
+        pass</a>
+
+    <div id='div_pt1.25' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.25').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.25: curl -u "content_automation":"CA746" -X POST -F path="/content/norton-msm/base/en/automation/Home_page_evo_rte_20170710_10_45_22" -F cmd="activate" http://10.91.100.97/bin/replicate.json
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.26' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testRTEDesktopVisibility</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.27' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testRTETabletVisibility</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.28' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testRTEMobileVisibility</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.29' class='hiddenRow'>
+    <td class='none'><div class='testcase'>deactivateRTEPage: Deactivate page will remove the home page from the publisher environment</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.30' class='hiddenRow'>
+    <td class='none'><div class='testcase'>deleteRTEPage: It will delete the page from the author environment.</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.30')" >
+        pass</a>
+
+    <div id='div_pt1.30' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.30').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.30: curl -u "content_automation":"CA746" -d "path=/content/norton-msm/base/en/automation/Home_page_evo_rte_20170710_10_45_22" -d "cmd=deletePage" -d "force=true" http://10.91.100.97/bin/wcmcommand
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>30</td>
+    <td>28</td>
+    <td>0</td>
+    <td>2</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+
+    <br>
+    <br>
+    <div id='ending'>
+    <table id="legend">
+    <colgroup>
+    <col align='left' />
+    <col align='left' />
+    </colgroup>
+    <tr id="header_row">
+    <td>Name</td>
+    <td>Description</td>
+    </tr>
+    
+    <tr>
+    <td>createRTEPage</td>
+    <td></td>
+    </tr>
+    
+    <tr>
+    <td>createNewRTEComponent</td>
+    <td></td>
+    </tr>
+    
+    <tr>
+    <td>activateRTEPageBaseLevel</td>
+    <td></td>
+    </tr>
+    
+    <tr>
+    <td>testRTEText</td>
+    <td></td>
+    </tr>
+    
+    <tr>
+    <td>updateRTEComponentHyperlink</td>
+    <td></td>
+    </tr>
+    
+    <tr>
+    <td>activateUpdatedRTEHyperlinkPageBaseLevel</td>
+    <td></td>
+    </tr>
+    
+    <tr>
+    <td>testRTEUpdatedHyperlinkText</td>
+    <td></td>
+    </tr>
+    
+    <tr>
+    <td>updateRTEComponentHeading</td>
+    <td></td>
+    </tr>
+    
+    <tr>
+    <td>activateUpdatedRTEHeaderPageBaseLevel</td>
+    <td></td>
+    </tr>
+    
+    <tr>
+    <td>testRTEHeaders</td>
+    <td></td>
+    </tr>
+    
+    <tr>
+    <td>updateRTEComponentLinkWhite</td>
+    <td></td>
+    </tr>
+    
+    <tr>
+    <td>activateUpdatedRTEStylePageBaseLevel</td>
+    <td></td>
+    </tr>
+    
+    <tr>
+    <td>testRTEStyle</td>
+    <td></td>
+    </tr>
+    
+    <tr>
+    <td>updateRTEMultipleDiv</td>
+    <td></td>
+    </tr>
+    
+    <tr>
+    <td>activateUpdatedRTEDivsPageBaseLevel</td>
+    <td></td>
+    </tr>
+    
+    <tr>
+    <td>testRTEDivs</td>
+    <td></td>
+    </tr>
+    
+    <tr>
+    <td>updateRTEBR</td>
+    <td></td>
+    </tr>
+    
+    <tr>
+    <td>activateUpdatedRTEBRPageBaseLevel</td>
+    <td></td>
+    </tr>
+    
+    <tr>
+    <td>testRTEBR</td>
+    <td></td>
+    </tr>
+    
+    <tr>
+    <td>updateRTEFormat</td>
+    <td></td>
+    </tr>
+    
+    <tr>
+    <td>activateUpdatedRTEFormatPageBaseLevel</td>
+    <td></td>
+    </tr>
+    
+    <tr>
+    <td>testRTEFormat</td>
+    <td></td>
+    </tr>
+    
+    <tr>
+    <td>cleanupRteComponent</td>
+    <td></td>
+    </tr>
+    
+    <tr>
+    <td>createPanelComboRTEComponent</td>
+    <td></td>
+    </tr>
+    
+    <tr>
+    <td>activateUpdatedRTEComboPageBaseLevel</td>
+    <td></td>
+    </tr>
+    
+    <tr>
+    <td>testRTEDesktopVisibility</td>
+    <td></td>
+    </tr>
+    
+    <tr>
+    <td>testRTETabletVisibility</td>
+    <td></td>
+    </tr>
+    
+    <tr>
+    <td>testRTEMobileVisibility</td>
+    <td></td>
+    </tr>
+    
+    <tr>
+    <td>deactivateRTEPage</td>
+    <td></td>
+    </tr>
+    
+    <tr>
+    <td>deleteRTEPage</td>
+    <td></td>
+    </tr>
+    
+    </table> 
+    </div>
+
+</body>
+</html>
